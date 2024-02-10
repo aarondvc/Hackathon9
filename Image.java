@@ -1,4 +1,3 @@
 public class Image {
-    String url;
-    
+    String url; 
 }
