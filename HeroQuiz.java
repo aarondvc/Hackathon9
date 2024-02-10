@@ -25,18 +25,28 @@ public class HeroQuiz implements ActionListener{
    JLabel bLbl = new JLabel();
    JLabel cLbl = new JLabel();
    JLabel dLbl = new JLabel();
-   ImageIcon display = new ImageIcon();
+   ImageIcon display = new ImageIcon("resources/byte.jpeg");
+   JLabel displayLbl = new JLabel(display);;
 
 
    public HeroQuiz() {
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setSize(400,650);
-      frame.getContentPane().setBackground(new Color(10,10,30));
+      frame.getContentPane().setBackground(new Color(136,206,235));
       frame.setResizable(false);
-      textField.setBounds(index, index, correctUserAns, correctAns);
+      frame.setLayout(null);
+      textField.setBounds(0, 0, 400, 50);
+      textField.setBackground(null);
+      textField.setForeground(new Color(186,12,47));
+      textField.setFont(new Font("Arial",Font.BOLD, 30));
+      textField.setBorder(BorderFactory.createBevelBorder(5));
+      textField.setHorizontalAlignment(JTextField.CENTER);
+      textField.setEditable(false);
+      textField.setText("SuperHero Quiz");
+      frame.add(displayLbl);
 
-
-
+      frame.add(textField);
+     
       frame.setVisible(true);
    }
 
