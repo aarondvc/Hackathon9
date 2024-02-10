@@ -26,7 +26,7 @@ public class HeroQuiz implements ActionListener{
    JLabel cLbl = new JLabel();
    JLabel dLbl = new JLabel();
    ImageIcon display = new ImageIcon("resources/byte.jpeg");
-   JLabel displayLbl = new JLabel(display);;
+   JLabel displayLbl = new JLabel();
 
 
    public HeroQuiz() {
@@ -43,8 +43,9 @@ public class HeroQuiz implements ActionListener{
       textField.setHorizontalAlignment(JTextField.CENTER);
       textField.setEditable(false);
       textField.setText("SuperHero Quiz");
+      displayLbl.setBounds(0, 50, 200, 200);
+      displayLbl.setIcon(display);
       frame.add(displayLbl);
-
       frame.add(textField);
      
       frame.setVisible(true);
