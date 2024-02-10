@@ -15,9 +15,9 @@ public class HeroQuiz implements ActionListener{
    int result;
    
    JFrame frame = new JFrame();
-   JTextField textField = new JTextField();
+   JTextField title = new JTextField();
    JLabel infoLbl = new JLabel();
-   JTextArea textArea = new JTextArea();
+   JTextArea questionArea = new JTextArea();
    JButton aBtn = new JButton();
    JButton bBtn = new JButton();
    JButton cBtn = new JButton();
@@ -38,25 +38,36 @@ public class HeroQuiz implements ActionListener{
       frame.setResizable(false);
       frame.setLayout(null);
 
-      textField.setBounds(0, 25, 400, 50);
-      textField.setBackground(null);
-      textField.setForeground(new Color(186,12,47));
-      textField.setFont(new Font("Arial",Font.BOLD, 36));
-      textField.setBorder(BorderFactory.createBevelBorder(5));
-      textField.setHorizontalAlignment(JTextField.CENTER);
-      textField.setEditable(false);
-      textField.setText("SuperHero Quiz");
+      title.setBounds(0, 25, 400, 50);
+      title.setBackground(null);
+      title.setForeground(new Color(186,12,47));
+      title.setFont(new Font("Arial",Font.BOLD, 36));
+      title.setBorder(BorderFactory.createBevelBorder(5));
+      title.setHorizontalAlignment(JTextField.CENTER);
+      title.setEditable(false);
+      title.setText("SuperHero Quiz");
 
-      displayLbl.setBounds(0, 175, 400, 200);
+      questionArea.setBounds(0, 175, 400, 50);
+      questionArea.setLineWrap(true);
+      questionArea.setWrapStyleWord(true);
+      questionArea.setBackground(null);
+      questionArea.setForeground(new Color(186,12,47));
+      questionArea.setFont(new Font("Arial",Font.BOLD, 20));
+      questionArea.setBorder(BorderFactory.createBevelBorder(5));
+      questionArea.setEditable(false);
+      questionArea.setText("trial");
+
+      displayLbl.setBounds(0, 125, 400, 200);
       displayLbl.setIcon(display);
       displayLbl.setHorizontalAlignment(JLabel.CENTER);
-      infoLbl.setBounds(0, 75, 400, 50);
-      infoLbl.setText("How well do you know your favorite superheroes?");
-      infoLbl.setFont(new Font("Arial",Font.BOLD, 28));
-   
+
       frame.add(displayLbl);
-      frame.add(textField);
-      frame.add(infoLbl);
+      frame.add(questionArea);
+      frame.add(title);
+      frame.add(aBtn);
+      frame.add(bBtn);
+      frame.add(cBtn);
+      frame.add(dBtn);
      
       frame.setVisible(true);
    }
