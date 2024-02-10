@@ -30,9 +30,12 @@ public class HeroQuiz implements ActionListener{
 
    public HeroQuiz() {
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.setSize(650,650);
+      frame.setSize(400,650);
+      frame.getContentPane().setBackground(new Color(10,10,30));
+      frame.setResizable(false);
+      textField.setBounds(index, index, correctUserAns, correctAns);
 
-      
+
 
       frame.setVisible(true);
    }
