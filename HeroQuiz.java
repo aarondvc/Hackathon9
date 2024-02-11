@@ -5,27 +5,36 @@ import javax.swing.*;
 public class HeroQuiz implements ActionListener{
    String [] questions = { 
       "Which superhero is known as the 'Man of Steel'?" ,
+      "What year was Scarlet Witch introduced?",
       "What is the name of Spider-Man's alter-ego?",
-      "Who is the king of Wakanda and also known as the Black Panther",
+      "Which king is known to break the sound barrier with a whisper",
+      "Who is the king of Wakanda and also known as the Black Panther?",
       "What is the real name of the superhero known as Wonder Woman?",
+      "Which entity was killed in order to defeat the Black Winter?",
       "What is the civilian name of the superhero known as Captain America?",
       "Which superhero is known for wielding a magical hammer called Mjolnir?", "What comic was Batman's first appearance?"
    };
 
    String[][] choices = {
       {"Thor", "Superman", "Iron Man", "Wolverine"},
+      {"1999", "1971", "2003", "1964"},
       {"Barry Allen", "Steve Rodgers", "Peter Parker", "Bruce Banner"},
+      {"Namor", "Black Bolt", "Doctor Doom", "Zeus"},
       {"T'Challa", "Bruce Wayne", "Tony Stark", "Clark Kent"},
       {"Diana Prince", "Natasha Romanoff", "Jessica Jones", "Carol Danvers"},
-      {"Tony Stark", "Bruce Wayne", "Clark Kent", "Steve Rodgers"},
+      {"Eternity", "Living Tribunal", "Galactus", "The Beyonder"},
+      {"Tony Stark", "Bruce Wayne", "Clark Kent", "Steve Rogers"},
       {"Hulk", "Thor", "Captain America", "Green Lantern"}, {"Detective Comics #18", "Detective Comics #20", "Action Comics #3", "Detective Comics #27"}
    };
 
    char[] answers = {
       'B',
+      'D',
       'C',
+      'B',
       'A',
       'A',
+      'C',
       'D',
       'B',
       'D'
@@ -67,7 +76,7 @@ public class HeroQuiz implements ActionListener{
 
    public HeroQuiz() {
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.setSize(650,650);
+      frame.setSize(700,650);
       frame.getContentPane().setBackground(new Color(108,183,240));
       frame.setResizable(false);
       frame.setLayout(null);
@@ -82,7 +91,7 @@ public class HeroQuiz implements ActionListener{
       textfield.setEditable(false);
       textfield.setText("Superhero Quiz");
 
-      textArea.setBounds(0, 50, 650, 50);
+      textArea.setBounds(35, 50, 650, 90);
       textArea.setLineWrap(true);
       textArea.setWrapStyleWord(true);
       textArea.setBackground(null);
@@ -90,48 +99,47 @@ public class HeroQuiz implements ActionListener{
       textArea.setFont(new Font("Arial",Font.BOLD, 25));
       textArea.setBorder(BorderFactory.createBevelBorder(5));
       textArea.setEditable(false);
-      //textArea.setText("SAMPLE TEXT");
 
-      aBtn.setBounds(0,100,100,100);
+      aBtn.setBounds(0,150,75,75);
       aBtn.setFont(new Font("Ariel",Font.BOLD, 35));
       aBtn.setFocusable(false);
       aBtn.addActionListener(this);
       aBtn.setText("A");
 
-      bBtn.setBounds(0,200,100,100);
+      bBtn.setBounds(0,220,75,75);
       bBtn.setFont(new Font("Ariel",Font.BOLD, 35));
       bBtn.setFocusable(false);
       bBtn.addActionListener(this);
       bBtn.setText("B");
 
-      cBtn.setBounds(0,300,100,100);
+      cBtn.setBounds(0,300,75,75);
       cBtn.setFont(new Font("Ariel",Font.BOLD, 35));
       cBtn.setFocusable(false);
       cBtn.addActionListener(this);
       cBtn.setText("C");
 
-      dBtn.setBounds(0,400,100,100);
+      dBtn.setBounds(0,375,75,75);
       dBtn.setFont(new Font("Ariel",Font.BOLD, 35));
       dBtn.setFocusable(false);
       dBtn.addActionListener(this);
       dBtn.setText("D");
 
-      aLbl.setBounds(125,100,500,100);
+      aLbl.setBounds(125,150,500,100);
       aLbl.setBackground(new Color(50,50,50));
       aLbl.setForeground(new Color(0,0,0));
       aLbl.setFont(new Font("Arial",Font.BOLD,35));
 
-      bLbl.setBounds(125,200,500,100);
+      bLbl.setBounds(125,225,500,100);
       bLbl.setBackground(new Color(50,50,50));
       bLbl.setForeground(new Color(0,0,0));
       bLbl.setFont(new Font("Arial",Font.BOLD,35));
 
-      cLbl.setBounds(125,300,500,100);
+      cLbl.setBounds(125,325,500,100);
       cLbl.setBackground(new Color(50,50,50));
       cLbl.setForeground(new Color(0,0,0));
       cLbl.setFont(new Font("Arial",Font.BOLD,35));
       
-      dLbl.setBounds(125,400,500,100);
+      dLbl.setBounds(125,425,500,100);
       dLbl.setBackground(new Color(50,50,50));
       dLbl.setForeground(new Color(0,0,0));
       dLbl.setFont(new Font("Arial",Font.BOLD,35));
