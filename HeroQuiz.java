@@ -176,8 +176,7 @@ public class HeroQuiz implements ActionListener {
       });
       frame.add(nextBtn);
       frame.setVisible(true);
-      
-      initializePlayAgainButton();
+
       nextQuestion();
    }
 
@@ -189,7 +188,7 @@ public class HeroQuiz implements ActionListener {
       playAgainBtn.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-              playAgain(); // Call playAgain method when the button is clicked
+              playAgain(); 
           }
       });
     }
@@ -310,6 +309,7 @@ public class HeroQuiz implements ActionListener {
    }
 
    public void results() {
+      initializePlayAgainButton();
       frame.add(playAgainBtn);
       aBtn.setEnabled(false);
       bBtn.setEnabled(false);
