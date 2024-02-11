@@ -3,27 +3,26 @@ import java.awt.*;
 import javax.swing.*;
 
 public class HeroQuiz implements ActionListener{
-   String [] questions = {
-       
+   String [] questions = { 
       "Which superhero is known as the 'Man of Steel'?" ,
       "What is the name of Spider-Man's alter-ego?",
       "Who is the king of Wakanda and also known as the Black Panther",
-      "What is the real name of the superhero known as Wonder Woman",
+      "What is the real name of the superhero known as Wonder Woman?",
       "What is the civilian name of the superhero known as Captain America?",
       "Which superhero is known for wielding a magical hammer called Mjolnir?", "What comic was Batman's first appearance?"
    };
 
    String[][] choices = {
-                           {"Thor", "Superman", "Iron Man", "Wolverine"},
-                           {"Barry Allen", "Steve Rodgers", "Peter Parker", "Bruce Banner"},
-                           {"T'Challa", "Bruce Wayne", "Tony Stark", "Clark Kent"},
-                           {"Diana Prince", "Natasha Romanoff", "Jessica Jones", "Carol Danvers"},
-                           {"Tony Stark", "Bruce Wayne", "Clark Kent", "Steve Rodgers"},
-                           {"Hulk", "Thor", "Captain America", "Green Lantern"}, {"Detective Comics #18", "Detective Comics #20", "Action Comics #3", "Detective Comics #27"}
+      {"Thor", "Superman", "Iron Man", "Wolverine"},
+      {"Barry Allen", "Steve Rodgers", "Peter Parker", "Bruce Banner"},
+      {"T'Challa", "Bruce Wayne", "Tony Stark", "Clark Kent"},
+      {"Diana Prince", "Natasha Romanoff", "Jessica Jones", "Carol Danvers"},
+      {"Tony Stark", "Bruce Wayne", "Clark Kent", "Steve Rodgers"},
+      {"Hulk", "Thor", "Captain America", "Green Lantern"}, {"Detective Comics #18", "Detective Comics #20", "Action Comics #3", "Detective Comics #27"}
    };
 
    char[] answers = {
-      'A',
+      'C',
       'C',
       'A',
       'A',
@@ -36,7 +35,7 @@ public class HeroQuiz implements ActionListener{
    //What comic was Batman's first appearance?
    char userAns;
    char correctAns;
-   int index;
+   int index = 0;
    int correctUserAns = 0;
    int totalQuestions = questions.length;
    int result;
@@ -242,12 +241,12 @@ public class HeroQuiz implements ActionListener{
             correctUserAns++;
          }
       }
+      displayAnswer(); 
       try {
          index++;
       } catch (ArrayIndexOutOfBoundsException aiobe) {
 
-      }
-      displayAnswer();   
+      }  
    }
 
 
