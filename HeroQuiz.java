@@ -56,7 +56,7 @@ public class HeroQuiz implements ActionListener{
    JLabel bLbl = new JLabel();
    JLabel cLbl = new JLabel();
    JLabel dLbl = new JLabel();
-   JButton playBtn = new JButton();
+   JButton nextBtn = new JButton();
    //ImageIcon display = new ImageIcon("resources/byte.jpeg");
    //JLabel displayLbl = new JLabel();
 
@@ -117,28 +117,24 @@ public class HeroQuiz implements ActionListener{
 
       aLbl.setBounds(125,100,500,100);
       aLbl.setBackground(new Color(50,50,50));
-      aLbl.setForeground(new Color(155,0,0));
+      aLbl.setForeground(new Color(0,0,0));
       aLbl.setFont(new Font("Arial",Font.BOLD,35));
-      //aLbl.setText("Testing label 1");
 
       bLbl.setBounds(125,200,500,100);
       bLbl.setBackground(new Color(50,50,50));
-      bLbl.setForeground(new Color(155,0,0));
+      bLbl.setForeground(new Color(0,0,0));
       bLbl.setFont(new Font("Arial",Font.BOLD,35));
-      //bLbl.setText("Testing label 2");
 
       cLbl.setBounds(125,300,500,100);
       cLbl.setBackground(new Color(50,50,50));
-      cLbl.setForeground(new Color(155,0,0));
+      cLbl.setForeground(new Color(0,0,0));
       cLbl.setFont(new Font("Arial",Font.BOLD,35));
-      //cLbl.setText("Testing label 3");
       
       dLbl.setBounds(125,400,500,100);
       dLbl.setBackground(new Color(50,50,50));
-      dLbl.setForeground(new Color(155,0,0));
+      dLbl.setForeground(new Color(0,0,0));
       dLbl.setFont(new Font("Arial",Font.BOLD,35));
-      //dLbl.setText("Testing label 4");
-      
+  
       frame.add(aLbl);
       frame.add(bLbl);
       frame.add(cLbl);
@@ -173,14 +169,23 @@ public class HeroQuiz implements ActionListener{
       percentage.setHorizontalAlignment(JTextField.CENTER);
       percentage.setEditable(false);
 
-      
+      nextBtn.setBounds(0, 500, 100, 100);
+        nextBtn.setFont(new Font("Arial", Font.BOLD, 20));
+        nextBtn.setFocusable(false);
+        nextBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nextPerformed(); // Call nextPerformed method when next button is clicked
+            }
+        });
+        frame.add(nextBtn);
+
       frame.setVisible(true);
 
       nextQuestion();
    }
 
    public void nextQuestion() {
-
       if(index>=totalQuestions) {
          results();
       } else {
@@ -191,6 +196,14 @@ public class HeroQuiz implements ActionListener{
          cLbl.setText(choices[index][2]);
          dLbl.setText(choices[index][3]);
       }
+   }
+
+   public void nextPerformed() {
+      aBtn.setEnabled(true);
+      bBtn.setEnabled(true);
+      cBtn.setEnabled(true);
+      dBtn.setEnabled(true);
+      nextQuestion();
    }
 
    @Override
@@ -204,24 +217,18 @@ public class HeroQuiz implements ActionListener{
          correctAns = 'A';
          if(correctAns == answers[index]) {
             correctUserAns++;
-          
-            
          }
       }
       if(e.getSource()==bBtn) {
          correctAns = 'B';
          if(correctAns == answers[index]) {
             correctUserAns++;
-          
-            
          }
       }
       if(e.getSource()==cBtn) {
          correctAns = 'C';
          if(correctAns == answers[index]) {
-            correctUserAns++;
-          
-            
+            correctUserAns++;  
          }
       }
 
@@ -229,14 +236,16 @@ public class HeroQuiz implements ActionListener{
          correctAns = 'D';
          if(correctAns == answers[index]) {
             correctUserAns++;
-          
-            
          }
       }
-      displayAnswer();
+      try {
+         index++;
+      } catch (ArrayIndexOutOfBoundsException aiobe) {
 
-      
+      }
+      displayAnswer();   
    }
+
 
    public void displayAnswer() {
       aBtn.setEnabled(false);
@@ -271,7 +280,7 @@ public class HeroQuiz implements ActionListener{
       bLbl.setText("");
       cLbl.setText("");
       dLbl.setText("");
-      number_right.setText("("+correctAns+"/"+totalQuestions+")");
+      number_right.setText("("+correctUserAns+"/"+totalQuestions+")");
       percentage.setText(result+"%");
 
       frame.add(number_right);
