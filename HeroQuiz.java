@@ -58,6 +58,7 @@ public class HeroQuiz implements ActionListener{
    
    JLabel infoLbl = new JLabel(); 
 
+   JButton playAgainBtn = new JButton();
    JButton aBtn = new JButton();
    JButton bBtn = new JButton();
    JButton cBtn = new JButton();
@@ -100,6 +101,8 @@ public class HeroQuiz implements ActionListener{
       textArea.setBorder(BorderFactory.createBevelBorder(5));
       textArea.setEditable(false);
 
+
+      
       aBtn.setBounds(0,150,75,75);
       aBtn.setFont(new Font("Ariel",Font.BOLD, 35));
       aBtn.setFocusable(false);
@@ -189,11 +192,50 @@ public class HeroQuiz implements ActionListener{
             }
         });
         frame.add(nextBtn);
+      
+
+
+
+
+
+     
+     
 
       frame.setVisible(true);
-
+      initializePlayAgainButton();
       nextQuestion();
    }
+
+   public void initializePlayAgainButton() {
+      playAgainBtn.setBounds(500, 500, 100, 100);
+      playAgainBtn.setFont(new Font("Arial", Font.BOLD, 20));
+      playAgainBtn.setText("Play Again");
+      playAgainBtn.setFocusable(false);
+      playAgainBtn.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              playAgain(); // Call playAgain method when the button is clicked
+          }
+      });
+       
+      
+  }
+
+   public void playAgain() {
+      index = 0; // Reset the index to the first question
+      correctUserAns = 0; // Reset the number of correct answers
+      nextQuestion(); // Start the quiz again with the first question
+      aBtn.setEnabled(true);
+      bBtn.setEnabled(true);
+      cBtn.setEnabled(true);
+      dBtn.setEnabled(true);
+      nextBtn.setEnabled(true);
+      frame.remove(playAgainBtn);
+      frame.remove(percentage);
+      frame.remove(number_right);
+      frame.revalidate();
+      frame.repaint();
+  }
 
    public void nextQuestion() {
       if(index>=totalQuestions) {
@@ -301,6 +343,8 @@ public class HeroQuiz implements ActionListener{
       bBtn.setEnabled(false);
       cBtn.setEnabled(false);
       dBtn.setEnabled(false);
+      nextBtn.setEnabled(false);
+      frame.add(playAgainBtn);
       result = (int)((correctUserAns/(double)totalQuestions)*100);
       textfield.setText("Results");
       textArea.setText("");
@@ -311,6 +355,7 @@ public class HeroQuiz implements ActionListener{
       number_right.setText("("+correctUserAns+"/"+totalQuestions+")");
       percentage.setText(result+"%");
 
+      frame.add(playAgainBtn);
       frame.add(number_right);
       frame.add(percentage);
    }
