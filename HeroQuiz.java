@@ -10,7 +10,7 @@ public class HeroQuiz implements ActionListener{
       "Who is the king of Wakanda and also known as the Black Panther",
       "What is the real name of the superhero known as Wonder Woman",
       "What is the civilian name of the superhero known as Captain America?",
-      "Which superhero is known for wielding a magical hammer called Mjolnir?"
+      "Which superhero is known for wielding a magical hammer called Mjolnir?", "What comic was Batman's first appearance?"
    };
 
    String[][] choices = {
@@ -19,7 +19,7 @@ public class HeroQuiz implements ActionListener{
                            {"T'Challa", "Bruce Wayne", "Tony Stark", "Clark Kent"},
                            {"Diana Prince", "Natasha Romanoff", "Jessica Jones", "Carol Danvers"},
                            {"Tony Stark", "Bruce Wayne", "Clark Kent", "Steve Rodgers"},
-                           {"Hulk", "Thor", "Captain America", "Green Lantern"}
+                           {"Hulk", "Thor", "Captain America", "Green Lantern"}, {"Detective Comics #18", "Detective Comics #20", "Action Comics #3", "Detective Comics #27"}
    };
 
    char[] answers = {
@@ -28,7 +28,8 @@ public class HeroQuiz implements ActionListener{
       'A',
       'A',
       'D',
-      'B'
+      'B',
+      'D'
    };
    
    //What is the Hulk's strength level
@@ -209,10 +210,42 @@ public class HeroQuiz implements ActionListener{
    }
 
    public void displayAnswer() {
+      aBtn.setEnabled(false);
+      bBtn.setEnabled(false);
+      cBtn.setEnabled(false);
+      dBtn.setEnabled(false);
+
+      if(answers[index] != 'A') {
+            aLbl.setForeground(new Color(255,0,0));
+      }
+      if(answers[index] != 'B') {
+            bLbl.setForeground(new Color(255,0,0));
+      }
+      if(answers[index] != 'C') {
+            cLbl.setForeground(new Color(255,0,0));
+      }
+      if(answers[index] != 'D') {
+            dLbl.setForeground(new Color(255,0,0));
+      }
 
    }
 
    public void results() {
+      aBtn.setEnabled(false);
+      bBtn.setEnabled(false);
+      cBtn.setEnabled(false);
+      dBtn.setEnabled(false);
+      result = (int)((correctUserAns/(double)totalQuestions)*100);
+      textfield.setText("Results");
+      textArea.setText("");
+      aLbl.setText("");
+      bLbl.setText("");
+      cLbl.setText("");
+      dLbl.setText("");
+      number_right.setText("("+correctAns+"/"+totalQuestions+")");
+      percentage.setText(result+"%");
 
+      frame.add(number_right);
+      frame.add(percentage);
    }
 }
