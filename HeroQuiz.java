@@ -170,6 +170,7 @@ public class HeroQuiz implements ActionListener{
 
       nextBtn.setBounds(0, 500, 100, 100);
         nextBtn.setFont(new Font("Arial", Font.BOLD, 20));
+        nextBtn.setText("Next");
         nextBtn.setFocusable(false);
         nextBtn.addActionListener(new ActionListener() {
             @Override
@@ -280,6 +281,7 @@ public class HeroQuiz implements ActionListener{
       if(answers[index] == 'D') {
             dLbl.setForeground(new Color(0,255,0));
       }
+
 
    }
 
