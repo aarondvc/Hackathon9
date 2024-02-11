@@ -5,30 +5,36 @@ import javax.swing.*;
 public class HeroQuiz implements ActionListener{
    String [] questions = { 
       "Which superhero is known as the 'Man of Steel'?" ,
+      "What year was Scarlet Witch introduced?",
       "What is the name of Spider-Man's alter-ego?",
-      "Which king is known to break the sound barrier with a whisper?"
+      "Which king is known to break the sound barrier with a whisper",
       "Who is the king of Wakanda and also known as the Black Panther?",
       "What is the real name of the superhero known as Wonder Woman?",
+      "Which entity was killed in order to defeat the Black Winter?",
       "What is the civilian name of the superhero known as Captain America?",
       "Which superhero is known for wielding a magical hammer called Mjolnir?", "What comic was Batman's first appearance?"
    };
 
    String[][] choices = {
       {"Thor", "Superman", "Iron Man", "Wolverine"},
+      {"1999", "1971", "2003", "1964"},
       {"Barry Allen", "Steve Rodgers", "Peter Parker", "Bruce Banner"},
       {"Namor", "Black Bolt", "Doctor Doom", "Zeus"},
       {"T'Challa", "Bruce Wayne", "Tony Stark", "Clark Kent"},
       {"Diana Prince", "Natasha Romanoff", "Jessica Jones", "Carol Danvers"},
-      {"Tony Stark", "Bruce Wayne", "Clark Kent", "Steve Rodgers"},
+      {"Eternity", "Living Tribunal", "Galactus", "The Beyonder"},
+      {"Tony Stark", "Bruce Wayne", "Clark Kent", "Steve Rogers"},
       {"Hulk", "Thor", "Captain America", "Green Lantern"}, {"Detective Comics #18", "Detective Comics #20", "Action Comics #3", "Detective Comics #27"}
    };
 
    char[] answers = {
       'B',
+      'D',
       'C',
       'B',
       'A',
       'A',
+      'C',
       'D',
       'B',
       'D'
