@@ -42,8 +42,6 @@ public class HeroQuiz implements ActionListener {
          'D'
    };
 
-   // What is the Hulk's strength level
-   // What comic was Batman's first appearance?
    char userAns;
    char correctAns;
    int index = 0;
@@ -57,6 +55,7 @@ public class HeroQuiz implements ActionListener {
 
    JLabel infoLbl = new JLabel();
 
+   JButton playAgainBtn = new JButton();
    JButton aBtn = new JButton();
    JButton bBtn = new JButton();
    JButton cBtn = new JButton();
@@ -66,8 +65,6 @@ public class HeroQuiz implements ActionListener {
    JLabel cLbl = new JLabel();
    JLabel dLbl = new JLabel();
    JButton nextBtn = new JButton();
-   // ImageIcon display = new ImageIcon("resources/byte.jpeg");
-   // JLabel displayLbl = new JLabel();
 
    JTextField number_right = new JTextField();
    JTextField percentage = new JTextField();
@@ -79,7 +76,6 @@ public class HeroQuiz implements ActionListener {
       frame.setResizable(false);
       frame.setLayout(null);
 
-      // textfield.setBounds(0, 25, 400, 50);
       textfield.setBounds(0, 0, 650, 50);
       textfield.setBackground(new Color(108, 183, 240));
       textfield.setForeground(new Color(155, 0, 0));
@@ -97,9 +93,9 @@ public class HeroQuiz implements ActionListener {
       textArea.setFont(new Font("Arial", Font.BOLD, 25));
       textArea.setBorder(BorderFactory.createBevelBorder(5));
       textArea.setEditable(false);
-
-      aBtn.setBounds(10, 150, 75, 75);
-      aBtn.setFont(new Font("Ariel", Font.BOLD, 35));
+      
+      aBtn.setBounds(0,150,75,75);
+      aBtn.setFont(new Font("Ariel",Font.BOLD, 35));
       aBtn.setFocusable(false);
       aBtn.addActionListener(this);
       aBtn.setText("A");
@@ -146,6 +142,7 @@ public class HeroQuiz implements ActionListener {
       frame.add(bLbl);
       frame.add(cLbl);
       frame.add(dLbl);
+
       frame.add(textArea);
       frame.add(textfield);
       frame.add(aBtn);
@@ -154,7 +151,6 @@ public class HeroQuiz implements ActionListener {
       frame.add(dBtn);
 
       number_right.setBounds(250, 220, 200, 100);
-      //number_right.setBackground(new Color(25, 25, 25));
       number_right.setForeground(new Color(155, 0, 0));
       number_right.setFont(new Font("Arial", Font.BOLD, 50));
       number_right.setBorder(BorderFactory.createBevelBorder(1));
@@ -162,7 +158,6 @@ public class HeroQuiz implements ActionListener {
       number_right.setEditable(false);
 
       percentage.setBounds(250, 320, 200, 100);
-      //percentage.setBackground(new Color(25, 25, 25));
       percentage.setForeground(new Color(155, 0, 0));
       percentage.setFont(new Font("Arial", Font.BOLD, 50));
       percentage.setBorder(BorderFactory.createBevelBorder(1));
@@ -182,9 +177,38 @@ public class HeroQuiz implements ActionListener {
       frame.add(nextBtn);
 
       frame.setVisible(true);
-
+      initializePlayAgainButton();
       nextQuestion();
    }
+
+   public void initializePlayAgainButton() {
+      playAgainBtn.setBounds(500, 500, 100, 100);
+      playAgainBtn.setFont(new Font("Arial", Font.BOLD, 20));
+      playAgainBtn.setText("Play Again");
+      playAgainBtn.setFocusable(false);
+      playAgainBtn.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              playAgain(); // Call playAgain method when the button is clicked
+          }
+      });
+    }
+
+   public void playAgain() {
+      index = 0; // Reset the index to the first question
+      correctUserAns = 0; // Reset the number of correct answers
+      nextQuestion(); // Start the quiz again with the first question
+      aBtn.setEnabled(true);
+      bBtn.setEnabled(true);
+      cBtn.setEnabled(true);
+      dBtn.setEnabled(true);
+      nextBtn.setEnabled(true);
+      frame.remove(playAgainBtn);
+      frame.remove(percentage);
+      frame.remove(number_right);
+      frame.revalidate();
+      frame.repaint();
+  }
 
    public void nextQuestion() {
       if (index >= totalQuestions) {
@@ -196,6 +220,7 @@ public class HeroQuiz implements ActionListener {
          bLbl.setText(choices[index][1]);
          cLbl.setText(choices[index][2]);
          dLbl.setText(choices[index][3]);
+
       }
    }
 
@@ -291,6 +316,7 @@ public class HeroQuiz implements ActionListener {
       dBtn.setEnabled(false);
       nextBtn.setEnabled(false);
       result = (int) ((correctUserAns / (double) totalQuestions) * 100);
+      
       if (correctUserAns < 5) {
          percentage.setForeground(new Color(200, 0, 0));
          number_right.setForeground(new Color(200, 0, 0));
@@ -301,6 +327,8 @@ public class HeroQuiz implements ActionListener {
          percentage.setForeground(new Color(0, 200, 0));
          number_right.setForeground(new Color(0, 200, 0));
       }
+      frame.add(playAgainBtn);
+      result = (int)((correctUserAns/(double)totalQuestions)*100);
       textfield.setText("Results");
       textArea.setText("");
       aLbl.setText("");
@@ -310,6 +338,7 @@ public class HeroQuiz implements ActionListener {
       number_right.setText("(" + correctUserAns + "/" + totalQuestions + ")");
       percentage.setText(result + "%");
 
+      frame.add(playAgainBtn);
       frame.add(number_right);
       frame.add(percentage);
    }
