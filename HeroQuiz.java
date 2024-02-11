@@ -30,6 +30,8 @@ public class HeroQuiz implements ActionListener{
       'B',
       'D'
    };
+
+   String[] images = {}
    
    //What is the Hulk's strength level
    //What comic was Batman's first appearance?
@@ -56,8 +58,8 @@ public class HeroQuiz implements ActionListener{
    JLabel cLbl = new JLabel();
    JLabel dLbl = new JLabel();
    JButton nextBtn = new JButton();
-   //ImageIcon display = new ImageIcon("resources/byte.jpeg");
-   //JLabel displayLbl = new JLabel();
+   ImageIcon display = new ImageIcon("resources/byte.jpeg");
+   JLabel displayLbl = new JLabel();
 
    JTextField number_right = new JTextField();
    JTextField percentage = new JTextField();
@@ -145,7 +147,7 @@ public class HeroQuiz implements ActionListener{
       //displayLbl.setHorizontalAlignment(JLabel.CENTER);
 
       //add picture to the frame
-      //frame.add(displayLbl);
+      frame.add(displayLbl);
       
       frame.add(textArea);
       frame.add(textfield);
@@ -195,6 +197,7 @@ public class HeroQuiz implements ActionListener{
          bLbl.setText(choices[index][1]);
          cLbl.setText(choices[index][2]);
          dLbl.setText(choices[index][3]);
+
       }
    }
 
