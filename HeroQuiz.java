@@ -232,6 +232,7 @@ public class HeroQuiz implements ActionListener{
             
          }
       }
+      displayAnswer();
 
       
    }
