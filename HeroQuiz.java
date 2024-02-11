@@ -31,7 +31,7 @@ public class HeroQuiz implements ActionListener{
       'D'
    };
 
-   String[] images = {}
+   String[] images = {};
    
    //What is the Hulk's strength level
    //What comic was Batman's first appearance?
