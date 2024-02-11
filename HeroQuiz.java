@@ -22,7 +22,7 @@ public class HeroQuiz implements ActionListener{
    };
 
    char[] answers = {
-      'C',
+      'B',
       'C',
       'A',
       'A',
