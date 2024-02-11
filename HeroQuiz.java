@@ -94,7 +94,7 @@ public class HeroQuiz implements ActionListener {
       textArea.setBorder(BorderFactory.createBevelBorder(5));
       textArea.setEditable(false);
       
-      aBtn.setBounds(0,150,75,75);
+      aBtn.setBounds(10,150,75,75);
       aBtn.setFont(new Font("Ariel",Font.BOLD, 35));
       aBtn.setFocusable(false);
       aBtn.addActionListener(this);
@@ -175,14 +175,14 @@ public class HeroQuiz implements ActionListener {
          }
       });
       frame.add(nextBtn);
-
       frame.setVisible(true);
+      
       initializePlayAgainButton();
       nextQuestion();
    }
 
    public void initializePlayAgainButton() {
-      playAgainBtn.setBounds(500, 500, 100, 100);
+      playAgainBtn.setBounds(500, 500, 125, 75);
       playAgainBtn.setFont(new Font("Arial", Font.BOLD, 20));
       playAgainBtn.setText("Play Again");
       playAgainBtn.setFocusable(false);
@@ -310,13 +310,14 @@ public class HeroQuiz implements ActionListener {
    }
 
    public void results() {
+      frame.add(playAgainBtn);
       aBtn.setEnabled(false);
       bBtn.setEnabled(false);
       cBtn.setEnabled(false);
       dBtn.setEnabled(false);
       nextBtn.setEnabled(false);
       result = (int) ((correctUserAns / (double) totalQuestions) * 100);
-      
+
       if (correctUserAns < 5) {
          percentage.setForeground(new Color(200, 0, 0));
          number_right.setForeground(new Color(200, 0, 0));
@@ -327,7 +328,6 @@ public class HeroQuiz implements ActionListener {
          percentage.setForeground(new Color(0, 200, 0));
          number_right.setForeground(new Color(0, 200, 0));
       }
-      frame.add(playAgainBtn);
       result = (int)((correctUserAns/(double)totalQuestions)*100);
       textfield.setText("Results");
       textArea.setText("");
@@ -337,8 +337,6 @@ public class HeroQuiz implements ActionListener {
       dLbl.setText("");
       number_right.setText("(" + correctUserAns + "/" + totalQuestions + ")");
       percentage.setText(result + "%");
-
-      frame.add(playAgainBtn);
       frame.add(number_right);
       frame.add(percentage);
    }
