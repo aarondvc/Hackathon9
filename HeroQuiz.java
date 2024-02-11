@@ -203,6 +203,10 @@ public class HeroQuiz implements ActionListener{
       bBtn.setEnabled(true);
       cBtn.setEnabled(true);
       dBtn.setEnabled(true);
+      aLbl.setForeground(new Color(0,0,0));
+      bLbl.setForeground(new Color(0,0,0));
+      cLbl.setForeground(new Color(0,0,0));
+      dLbl.setForeground(new Color(0,0,0));
       nextQuestion();
    }
 
@@ -264,6 +268,18 @@ public class HeroQuiz implements ActionListener{
       }
       if(answers[index] != 'D') {
             dLbl.setForeground(new Color(255,0,0));
+      }
+      if(answers[index] == 'A') {
+            aLbl.setForeground(new Color(0,255,0));
+      }
+      if(answers[index] == 'B') {
+            bLbl.setForeground(new Color(0,255,0));
+      }
+      if(answers[index] == 'C') {
+            cLbl.setForeground(new Color(0,255,0));
+      }
+      if(answers[index] == 'D') {
+            dLbl.setForeground(new Color(0,255,0));
       }
 
    }
