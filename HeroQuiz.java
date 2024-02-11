@@ -200,8 +200,36 @@ public class HeroQuiz implements ActionListener{
       dBtn.setEnabled(false);
 
       if(e.getSource()==aBtn) {
+         correctAns = 'A';
          if(correctAns == answers[index]) {
+            correctUserAns++;
+          
+            
+         }
+      }
+      if(e.getSource()==bBtn) {
+         correctAns = 'B';
+         if(correctAns == answers[index]) {
+            correctUserAns++;
+          
+            
+         }
+      }
+      if(e.getSource()==cBtn) {
+         correctAns = 'C';
+         if(correctAns == answers[index]) {
+            correctUserAns++;
+          
+            
+         }
+      }
 
+      if(e.getSource()==dBtn) {
+         correctAns = 'D';
+         if(correctAns == answers[index]) {
+            correctUserAns++;
+          
+            
          }
       }
 
