@@ -153,17 +153,18 @@ public class HeroQuiz implements ActionListener {
       frame.add(cBtn);
       frame.add(dBtn);
 
-      number_right.setBounds(225, 225, 200, 100);
-      number_right.setBackground(new Color(25, 25, 25));
+      number_right.setBounds(250, 220, 200, 100);
+      //number_right.setBackground(new Color(25, 25, 25));
       number_right.setForeground(new Color(155, 0, 0));
       number_right.setFont(new Font("Arial", Font.BOLD, 50));
       number_right.setBorder(BorderFactory.createBevelBorder(1));
       number_right.setHorizontalAlignment(JTextField.CENTER);
       number_right.setEditable(false);
 
-      percentage.setBounds(225, 325, 200, 100);
-      percentage.setBackground(new Color(25, 25, 25));
+      percentage.setBounds(250, 320, 200, 100);
+      //percentage.setBackground(new Color(25, 25, 25));
       percentage.setForeground(new Color(155, 0, 0));
+      percentage.setFont(new Font("Arial", Font.BOLD, 50));
       percentage.setBorder(BorderFactory.createBevelBorder(1));
       percentage.setHorizontalAlignment(JTextField.CENTER);
       percentage.setEditable(false);
@@ -290,6 +291,16 @@ public class HeroQuiz implements ActionListener {
       dBtn.setEnabled(false);
       nextBtn.setEnabled(false);
       result = (int) ((correctUserAns / (double) totalQuestions) * 100);
+      if (correctUserAns < 5) {
+         percentage.setForeground(new Color(200, 0, 0));
+         number_right.setForeground(new Color(200, 0, 0));
+      } else if (correctUserAns >= 5 && correctUserAns <= 7) {
+         percentage.setForeground(new Color(255, 165, 0));
+         number_right.setForeground(new Color(255, 165, 0));
+      } else {
+         percentage.setForeground(new Color(0, 200, 0));
+         number_right.setForeground(new Color(0, 200, 0));
+      }
       textfield.setText("Results");
       textArea.setText("");
       aLbl.setText("");
